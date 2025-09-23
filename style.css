@@ -18,12 +18,12 @@ header {
 /* Titel */
 .title {
   text-align: center;
-  padding: 40px 0;
+  padding: 300px 0;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
 .title h1 {
-  font-size: 2rem;
+  font-size: 10rem;
   font-weight: normal;
   color: #3d5243;
 }
