@@ -14,25 +14,45 @@ header {
   padding: 20px 40px;
   font-size: 14px;
 }
+ 
+.header-left p {
+
+  font-size: 32px;
+  
+}
+
+.header-right p {
+
+  font-size: 32px;
+  
+}
+
+
+
+h3{
+  font-size: 32px;
+}
 
 /* Titel */
 .title {
   text-align: center;
-  padding: 300px 0;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+
+  
+
+  border-bottom: 1px solid black;
 }
 .title h1 {
   font-size: 10rem;
   font-weight: normal;
   color: #3d5243;
+  text-align: center;
 }
 
 /* Over mij */
 .about {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: 20px;
+  gap: 40px;
   padding: 40px;
   border-bottom: 2px solid #000;
   background-color: #fff;
@@ -41,11 +61,12 @@ header {
   text-align: center;
 }
 .profile-pic {
-  width: 120px;
-  height: 120px;
-  border: 2px solid #666;
-  margin: 0 auto 10px;
-  border-radius: 8px;
+  width: 423px;
+  height: 423px;
+  border: 2px solid black;
+  margin: 0 auto 19px;
+  border-radius: 20px;
+
 }
 .about-text {
   font-size: 14px;
@@ -63,14 +84,27 @@ header {
   margin-top: 20px;
   color: #3d5243;
 }
-.skills span {
-  display: inline-block;
-  background: #d6e5d8;
-  padding: 5px 10px;
-  margin: 4px;
-  border-radius: 6px;
-  font-size: 13px;
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
 }
+
+.skills span {
+  background: #8EBC8E;
+  padding: 5px 10px;
+  border-radius: 24px;
+  font-size: 13px;
+  color: #fff;
+  width: 119px;
+  height: 114px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; /* tekst mooi centreren */
+}
+
+
 
 /* Projecten */
 .projects {
