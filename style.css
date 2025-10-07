@@ -1,145 +1,120 @@
 /* Algemene instellingen */
-body {
-  font-family: "Georgia", serif;
+html, body {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+  overflow-x: hidden; /* voorkomt horizontale scroll */
+  font-family: "Georgia", serif;
+  color: #fff;
+  background-color: #000;
+  height: 100%;
 }
 
 /* Header */
 header {
+  position: fixed; /* blijft netjes bovenaan */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 40px;
-  font-size: 14px;
+  z-index: 10;
+  box-sizing: border-box;
 }
- 
+
+.header-left h3 {
+  font-size: 32px;
+  margin: 0;
+}
+
 .header-left p {
-
-  font-size: 32px;
-  
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-.header-right p {
-
-  font-size: 32px;
-  
+.header-right {
+  display: flex;
+  gap: 30px; /* ruimte tussen de items */
+  align-items: center;
 }
 
-
-
-h3{
-  font-size: 32px;
+.header-right a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
+.header-right a:hover {
+  color: #9ccba0; /* subtiele hoverkleur */
+}
 /* Titel */
 .title {
+  background-image: url("./assets/achtergrond.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-
-  
-
-  border-bottom: 1px solid black;
 }
+
 .title h1 {
-  font-size: 10rem;
+  font-size: clamp(3rem, 10vw, 10rem); /* schaalbaar op mobiel */
   font-weight: normal;
-  color: #3d5243;
-  text-align: center;
-}
-
-/* Over mij */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 40px;
-  padding: 40px;
-  border-bottom: 2px solid #000;
-  background-color: #fff;
-}
-.profile {
-  text-align: center;
-}
-.profile-pic {
-  width: 423px;
-  height: 423px;
-  border: 2px solid black;
-  margin: 0 auto 19px;
-  border-radius: 20px;
-
-}
-.about-text {
-  font-size: 14px;
-  line-height: 1.6;
-}
-.socials i {
-  margin-right: 10px;
-  font-size: 18px;
-  color: #3d5243;
-}
-.info {
-  font-size: 14px;
-}
-.info h4 {
-  margin-top: 20px;
-  color: #3d5243;
-}
-.skills {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  justify-items: center;
-}
-
-.skills span {
-  background: #8EBC8E;
-  padding: 5px 10px;
-  border-radius: 24px;
-  font-size: 13px;
   color: #fff;
-  width: 119px;
-  height: 114px;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; /* tekst mooi centreren */
+  margin: 0;
 }
 
+/* Fade-out animatie */
+.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-
-/* Projecten */
-.projects {
-  padding: 40px;
-  background-color: #f9f9f9;
+/* Button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
-.projects h2 {
-  text-align: center;
-  color: #3d5243;
-  margin-bottom: 30px;
-}
-.project {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 700px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.project h3 {
-  color: #3d5243;
-}
-.project h4 {
-  margin-top: 10px;
-  color: #555;
-}
-.btn {
-  margin-top: 15px;
-  background: #3d5243;
+#projectBtn {
+  display: inline-block; /* zodat de <a> zich als knop gedraagt */
+  font-size: 1.5rem;
+  padding: 18px 50px;
+  background-color: #3d5243;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none; /* verwijdert onderlijn */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.btn:hover {
-  background: #2a3a2e;
+
+#projectBtn:hover {
+  background-color: #2a3a2e;
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(61, 82, 67, 0.5);
+}
+
+
+/* Responsief gedrag */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .title h1 {
+    font-size: 3.5rem;
+  }
+
+  #projectBtn {
+    font-size: 1.2rem;
+    padding: 14px 36px;
+  }
 }

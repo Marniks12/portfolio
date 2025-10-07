@@ -1,0 +1,195 @@
+/* Over mij */
+/* Verticale sectie-voortgangsbalk */
+.section-progress-container {
+  position: fixed;
+  top: 10;
+  right: 20px;
+  width: 32px; 
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  z-index: 999;
+}
+
+/* Balk die groeit */
+.section-progress-bar {
+  width: 100%;
+  height: 0%;
+  background: #9ccba0;
+  border-radius: 35px;
+  transition: height 0.2s ease;
+}
+
+/* Sectiemarkers */
+.section-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #9ccba0;
+}
+
+/* Marker labels (optioneel) */
+.section-marker::after {
+  content: attr(data-section);
+  position: absolute;
+  right: 90%; /* verschuif naar links */
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  background-color: #8EBC8E;
+  border-radius: 5px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 80px 120px;
+  background-color: #fff;
+  color: #000;
+}
+
+.profile {
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid #000;
+  position: relative;
+  z-index: 2;
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000;
+  border-radius: 20px;
+  transform: rotate(5deg);
+  z-index: 1;
+}
+
+.profile p {
+  margin-top: 10px;
+  font-style: italic;
+  color: #3d5243;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.socials {
+  margin-top: 20px;
+}
+
+.socials i {
+  margin-right: 15px;
+  font-size: 22px;
+  color: #3d5243;
+  cursor: pointer;
+}
+
+/* Info Onder */
+.info {
+  background-color: #fff;
+  color: #000;
+  padding: 40px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.skills span {
+  background: #8EBC8E;
+  padding: 5px 10px;
+  border-radius: 24px;
+  font-size: 13px;
+  color: #fff;
+  width: 119px;
+  height: 114px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+
+.projects {
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+.projects h2 {
+  text-align: center;
+  color: #3d5243;
+  margin-bottom: 30px;
+}
+.project {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.project h3 {
+  color: #3d5243;
+}
+.project h4 {
+  margin-top: 10px;
+  color: #555;
+}
+/* --- Scroll Fade-in Animatie --- */
+
+.project {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Zodra zichtbaar */
+.project.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Projecten centreren beter */
+.projects {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}

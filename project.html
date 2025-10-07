@@ -1,0 +1,126 @@
+<!-- Over mij -->
+ <!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6N32M74');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>projecten</title>
+  <link rel="stylesheet" href="projectstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Verticale sectie-voortgangsbalk -->
+<!-- Verticale sectie-voortgangsbalk met markers -->
+<div class="section-progress-container">
+  <div class="section-marker" data-section="About me"></div>
+  <div class="section-marker" data-section="Projecten"></div>
+  <div class="section-marker" data-section="Contact"></div>
+  <div class="section-progress-bar" id="sectionProgressBar"></div>
+</div>
+
+
+  <section class="about">
+    <div class="profile">
+      <img class="profile-pic" src="./assets/selfie.png" alt="">
+      <p>Marvis Ojo</p>
+    </div>
+
+    <div class="about-text">
+      <p>
+        I studied at Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed euismod, nisl nec tincidunt lacinia, nunc est facilisis nunc, quis 
+        rutrum nisi quam eget nulla.
+      </p>
+      <p><strong>Let's connect!</strong></p>
+      <div class="socials">
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Onder -->
+  <section class="info">
+    <div class="education">
+      <h4>Opleiding</h4>
+      <p><strong>School:</strong> Thomasmore</p>
+      <p><strong>Studie:</strong> Digital experience design</p>
+      <p><strong>Duur:</strong> 2023-2026</p>
+    </div>
+
+    <div class="skills-block">
+      <h4>Skills</h4>
+      <div class="skills">
+        <span><img src="./assets/html.png" alt=""></span>
+        <span><img src="./assets/css.png" alt=""></span>
+        <span><img src="./assets/js.png" alt=""></span>
+        <span><img src="./assets/php.png" alt=""></span>
+        <span><img src="./assets/react.png" alt=""></span>
+        <span><img src="./assets/p5.png" alt=""></span>
+        <span><img src="./assets/p5.png" alt=""></span>
+        <span><img src="./assets/blender.png" alt=""></span>
+      </div>    
+    </div>
+  </section>
+  <section  id="projects" class="projects">
+    <h2>Mijn Projecten</h2>
+
+    <div class="project">
+      <img src="./assets/Group 7.png" alt="">
+    </div>
+
+    <div class="project">
+      <img src="./assets/Group 8.png" alt="">
+    </div>
+  </section>
+  <script>
+  const projects = document.querySelectorAll('.project');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  projects.forEach(project => observer.observe(project));
+</script>
+
+<script>
+const progressBar = document.getElementById('sectionProgressBar');
+const sections = document.querySelectorAll('section');
+const markers = document.querySelectorAll('.section-marker');
+
+// Zet markers op juiste positie
+sections.forEach((section, index) => {
+  const sectionTop = section.offsetTop;
+  const totalHeight = document.body.scrollHeight - window.innerHeight;
+  const percent = (sectionTop / totalHeight) * 100;
+  if (markers[index]) {
+    markers[index].style.top = percent + '%';
+  }
+});
+
+// Update voortgangsbalk bij scrollen
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const totalHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / totalHeight) * 100;
+  
+  progressBar.style.height = scrollPercent + '%';
+});
+</script>
+</body>
+
+
+
+</html>
