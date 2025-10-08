@@ -1,23 +1,24 @@
-/* Over mij */
-/* Verticale sectie-voortgangsbalk */
+/* Verbeterde sectie-progress-container */
 .section-progress-container {
   position: fixed;
-  top: 10;
+  top: 0;
   right: 20px;
-  width: 32px; 
+  width: 12px; /* iets breder voor betere zichtbaarheid */
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05); /* subtielere achtergrond */
   border-radius: 6px;
   z-index: 999;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2); /* lichte diepte */
 }
 
 /* Balk die groeit */
 .section-progress-bar {
   width: 100%;
   height: 0%;
-  background: #9ccba0;
-  border-radius: 35px;
-  transition: height 0.2s ease;
+  background: #8EBC8E; /* frisse groen tint */
+  border-radius: 6px;
+  transition: height 0.3s ease;
+  box-shadow: 0 0 6px rgba(142, 188, 142, 0.6); /* licht gloed effect */
 }
 
 /* Sectiemarkers */
@@ -25,27 +26,31 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
+  width: 16px; /* iets groter voor modernere look */
+  height: 16px;
   background-color: #fff;
   border-radius: 50%;
-  border: 2px solid #9ccba0;
+  border: 3px solid #8EBC8E; /* frisse groene rand */
+  transition: transform 0.3s, background 0.3s;
 }
 
-/* Marker labels (optioneel) */
+/* Marker labels */
 .section-marker::after {
   content: attr(data-section);
   position: absolute;
-  right: 90%; /* verschuif naar links */
+  right: 120%; /* labels verder van de balk */
   top: 50%;
   transform: translateY(-50%);
-  color: black;
-  font-size: 20px;
+  color: #111;
+  font-size: 14px;
   font-weight: bold;
-  white-space: nowrap;
   background-color: #8EBC8E;
-  border-radius: 5px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  opacity: 0.9;
 }
+
 
 .about {
   display: grid;
@@ -145,6 +150,7 @@
 .projects {
   padding: 40px;
   background-color: #f9f9f9;
+  gap: 30px;
 }
 .projects h2 {
   text-align: center;
@@ -152,20 +158,80 @@
   margin-bottom: 30px;
 }
 .project {
-  background: #fff;
+  position: relative;
+  width: 50%;          /* past bij je afbeelding */
+  margin: 0 auto;      /* center de box */
   border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Afbeelding */
+.project img {
+  display: block;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay blok */
+.project .overlay {
+  position: absolute;
+  top: 0;               /* start bovenaan */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 700px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  color: #fff;
+  
+  transform: translateY(100%); /* start buiten beeld onderaan */
+  transition: transform 0.3s ease;
+  z-index: 2;           /* overlay boven de afbeelding */
 }
-.project h3 {
-  color: #3d5243;
+
+/* Hover effect */
+.project:hover img {
+  transform: scale(1.05);
 }
-.project h4 {
-  margin-top: 10px;
-  color: #555;
+
+.project:hover .overlay {
+transform: translateY(0); /* schuift overlay omhoog over de afbeelding */
 }
+
+
+/* Overlay tekst */
+.project .overlay h3 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.project .overlay p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+}
+
+/* Explore knop */
+.project .explore-btn {
+  padding: 12px 24px;
+  background-color: #8EBC8E;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project .explore-btn:hover {
+  background-color: #76a66e;
+}
+
 /* --- Scroll Fade-in Animatie --- */
 
 .project {
@@ -192,4 +258,95 @@
   max-width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+/* Contact */
+.contact {
+  background-color: black;
+  color: #fff;
+  padding: 40px 120px;
+  text-align: center;
+  border-radius: 20px;
+}   
+.contact h2 {
+  margin-bottom: 20px;
+  color: #3d5243;
+}
+.contact p {
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #555;
+}
+.contact a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #8EBC8E;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.contact a:hover {
+  background-color: #76a66e;
+}
+/* Contactformulier */
+.contact form {
+  display: flex;
+  flex-direction: column; /* Zet alles onder elkaar */
+  align-items: center; /* Centreer horizontaal */
+  gap: 15px; /* Ruimte tussen velden */
+  max-width: 400px;
+  margin: 0 auto 30px auto; /* Centreert het formulier */
+}
+
+.contact label {
+  align-self: flex-start; /* Label links uitlijnen */
+  color: #8EBC8E; /* Groen accentkleur */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #3d5243; /* Donkergroen randje */
+  border-radius: 10px;
+  background-color: #111; /* Donkere achtergrond */
+  color: #fff; /* Witte tekst */
+  font-size: 14px;
+  resize: none; /* Geen formaat aanpassen bij textarea */
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #8EBC8E; /* Groen randje bij focus */
+  box-shadow: 0 0 5px #8EBC8E;
+}
+
+.contact button {
+  padding: 12px 24px;
+  background-color: #8EBC8E;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #76a66e;
+}
+
+/* Footer */
+footer {    
+  background-color: #3d5243;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 20px;
 }
