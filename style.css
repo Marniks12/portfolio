@@ -22,6 +22,35 @@ header {
   z-index: 10;
   box-sizing: border-box;
 }
+.bubble-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; /* boven button maar onder titel */
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px; /* start onder scherm */
+  width: calc(30px * var(--i)); /* variabele grootte */
+  animation: floatUp calc(6s / var(--i)) linear infinite;
+  opacity: 0.7;
+}
+
+.bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 50%; animation-delay: 4s; }
+.bubble:nth-child(4) { left: 70%; animation-delay: 1s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-50vh) translateX(20px) rotate(45deg); opacity: 0.9; }
+  100% { transform: translateY(-100vh) translateX(-10px) rotate(90deg); opacity: 0; }
+}
 
 .header-left h3 {
   font-size: 32px;
@@ -51,7 +80,8 @@ header {
 }
 /* Titel */
 .title {
-  background-image: url("./assets/achtergrond.png");
+  position: relative;
+  background-image: url("./assets/bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -60,10 +90,18 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 1;
 }
 
+
+
+
+
+
 .title h1 {
-  font-size: clamp(3rem, 10vw, 10rem); /* schaalbaar op mobiel */
+  font-size: clamp(2rem, 6vw, 4rem);
+
+
   font-weight: normal;
   color: #fff;
   margin: 0;
@@ -76,14 +114,15 @@ header {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Button */
 .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+  position: absolute;
+  top: 75%; /* verticale positie, pas aan naar wens */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* achter bubbels en titel */
 }
 #projectBtn {
-  display: inline-block; /* zodat de <a> zich als knop gedraagt */
+  display: inline-block;
   font-size: 1.5rem;
   padding: 18px 50px;
   background-color: #3d5243;
@@ -92,7 +131,7 @@ header {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  text-decoration: none; /* verwijdert onderlijn */
+  text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -110,6 +149,8 @@ header {
   }
 
   .title h1 {
+      position: relative;
+  z-index: 2;
     font-size: 3.5rem;
   }
 
