@@ -1,0 +1,240 @@
+/* Basisstijl op basis van screenshot (lichte achtergrond, donkere tekst) */
+body {
+    background-color: #f5f5f5; /* zachte donkere wit */
+    color: #111; /* standaard tekstkleur, donker genoeg voor contrast */
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-image: url(./assets/brightfishlogo.png);
+    background-size: cover;       /* Maakt de afbeelding volledig zichtbaar en vult het element */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    background-position: center;  /* Centreert de afbeelding */
+    border-bottom: 1px solid #ddd;
+    height: 250px;
+    margin-top: -8px;
+    
+;
+}
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    background-size: cover;       /* Maakt de afbeelding volledig zichtbaar en vult het element */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    background-position: center;  /* Centreert de afbeelding */
+    border-bottom: 1px solid #ddd;
+    height: 250px;
+    margin-top: -8px;
+    
+;
+}
+
+/* achtergrondvideo */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;  /* vult de container zonder vervormen */
+  z-index: 0;
+}
+
+/* donkere overlay voor contrast */
+/* donkere overlay voor contrast */
+
+/* Titel centreren */
+.banner .title {
+    position: absolute; /* Absoluut tov .header */
+    top: 20%;           /* Verticaal midden */
+    left: 50%;          /* Horizontaal midden */
+    transform: translate(-50%, -50%); /* Precisie center */
+    color:  white;       /* Kleur aanpassen zodat het zichtbaar is */
+    font-size: 5rem;    /* Pas grootte naar wens aan */
+    text-align: center;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* Titel centreren */
+.header .title {
+    position: absolute; /* Absoluut tov .header */
+    top: 20%;           /* Verticaal midden */
+    left: 50%;          /* Horizontaal midden */
+    transform: translate(-50%, -50%); /* Precisie center */
+    color: white;       /* Kleur aanpassen zodat het zichtbaar is */
+    font-size: 3rem;    /* Pas grootte naar wens aan */
+    text-align: center;
+}
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #688A68;
+}
+
+
+p {
+    max-width: 800px;
+    line-height: 1.6;
+}
+ 
+.concept{
+    display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #f4f7f4; /* zachte, cleane kleur */
+  border-radius: 20px;
+  width: 75%;               /* minder breed dan hele pagina */
+  margin: 60px auto;        /* centreert de sectie */
+  padding: 60px;
+  height: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
+}
+
+.doel{
+    display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #f4f7f4; /* zachte, cleane kleur */
+  border-radius: 20px;
+  width: 75%;               /* minder breed dan hele pagina */
+  margin: 60px auto;        /* centreert de sectie */
+  padding: 60px;
+  height: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
+}
+.proces {
+  background-color: #f4f7f4;
+  border-radius: 20px;
+  width: 75%;
+  margin: 60px auto;
+  padding: 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+}
+
+.proces h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+/* het grid zelf */
+.proces .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 40px;
+}
+
+/* de rest mag blijven zoals eerder */
+
+/* elk blok mooi opmaken */
+.proces div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proces img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.iteraties {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.iteraties img{
+    max-width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+}
+
+/* specifieke positionering */
+.moodboard {
+    grid-column: 1; /* eerste kolom */
+    grid-row: 1;    /* eerste rij */
+}
+
+.kleurenpalet {
+    grid-column: 2; /* tweede kolom */
+    grid-row: 1;
+}
+
+.database {
+    grid-column: 1 / span 2; /* midden, over beide kolommen */
+    grid-row: 2;
+}
+
+.wireframes {
+    grid-column: 1 / span 2; /* onderaan, over beide kolommen */
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.resultaat {
+    display: grid;
+    grid-template-columns: repeat( 1fr); /* 2 kolommen */
+    grid-template-rows: auto auto auto;     /* 3 rijen */
+    gap: 40px;                              /* ruimte tussen items */
+    background-color: #f4f7f4;
+    border-radius: 20px;
+    width: 75%;
+    margin: 60px auto;
+    padding: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+    text-align: center;
+}
+
+.kiosk{
+    display: grid;
+    grid-template-columns: repeat( 1fr); /* 2 kolommen */
+    grid-template-rows: auto auto auto;     /* 3 rijen */
+    gap: 40px;                              /* ruimte tussen items */
+    background-color: #f4f7f4;
+    border-radius: 20px;
+    align-items: center;
+    width: 75%;
+    margin: 10px auto;
+    padding: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+    text-align: center;
+
+}
+
+.kiosk img{
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+}

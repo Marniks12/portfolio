@@ -1,4 +1,53 @@
 /* Verbeterde sectie-progress-container */
+/* De navigatiebalk zelf */
+
+.nav {
+  display: flex;
+  justify-content: center;   /* midden op de pagina */
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* De “rechthoek” zelf */
+.nav ul {
+  display: flex;
+  gap: 40px; /* ruimte tussen links */
+  list-style: none;
+  padding: 15px 40px; /* binnenruimte in de rechthoek */
+  margin: 0;
+  background-color: #cee7ce; /* kleur van de rechthoek */
+  border-radius: 20px;     /* afgeronde hoeken */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* donkerdere schaduw */
+  border: 2px solid #ffffff;  /* optioneel, randje voor contrast */
+}
+.nav img {
+  height: 40px;
+  margin-right: 20px;
+}
+/* De links binnen de rechthoek */
+.nav li a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover-effect op de tekst */
+.nav li a:hover {
+  color: #555;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  background-color: #f5f5f5; /* of wit, om contrast te houden */
+}
+
 
 body {
     background-color: #f5f5f5; /* zachte donkere wit */

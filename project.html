@@ -13,6 +13,11 @@
   <title>Projecten</title>
   <link rel="stylesheet" href="projectstyle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* smooth scroll toevoegen */
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -22,15 +27,26 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Verticale sectie-voortgangsbalk -->
+  <!-- Verticale sectie-voortgangsbalk 
   <div class="section-progress-container">
     <div class="section-marker" data-section="About me"></div>
     <div class="section-marker" data-section="Projecten"></div>
     <div class="section-marker" data-section="Contact"></div>
     <div class="section-progress-bar" id="sectionProgressBar"></div>
-  </div>
+  </div>-->
 
-  <section class="about">
+  <section class="nav">
+    <ul>
+     <a href="index.html">
+  <img src="./assets/Group 17.png" alt="Home">
+</a>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projecten</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </section>
+
+  <section class="about" id="about">
     <div class="profile">
       <img class="profile-pic" src="./assets/selfie.png" alt="">
       <p>Marvis Ojo</p>
@@ -55,9 +71,7 @@
     </div>
   </section>
 
-  <section class="info">
-    
-
+  <section class="info" id="skills">
     <div class="skills-block">
       <h4>Skills</h4>
       <div class="skills">
@@ -74,26 +88,26 @@
 
   <section id="projects" class="projects">
     <h2>Mijn Projecten</h2>
-    <div class="project"><img src="./assets/bf.png" alt="">
+    <div class="project">
+      <img src="./assets/bf.png" alt="">
       <div class="overlay">
-    <h3>Project Titel</h3>        <!-- Tekst op de overlay -->
-    <p>Korte beschrijving</p>
-   
-    <button class="explore-btn">Explore</button>
-  </div>
+        <h3>Project Titel</h3>
+        <p>Korte beschrijving</p>
+        <a href="detail.html" class="explore-btn">Explore</a>
+      </div>
     </div>
 
-     <div class="project"><img src="./assets/bf2.png" alt="">
-    <div class="overlay">
-    <h3>Project Titel</h3>        <!-- Tekst op de overlay -->
-    <p>Korte beschrijving</p>      <!-- Tekst op de overlay -->
-    <button class="explore-btn">Explore</button>
-  </div>
+    <div class="project">
+      <img src="./assets/bf2.png" alt="">
+      <div class="overlay">
+        <h3>Project Titel</h3>
+        <p>Korte beschrijving</p>
+        <a href="detail2.html" class="explore-btn">Explore</a>
+      </div>
     </div>
-   
   </section>
 
-  <section class="contact">
+  <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Neem contact met ons op via onderstaand formulier:</p>
 
@@ -114,37 +128,39 @@
   </section>
 
   <script>
-  const projects = document.querySelectorAll('.project');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.2 });
-  projects.forEach(project => observer.observe(project));
+    // Intersection Observer voor projecten
+    const projects = document.querySelectorAll('.project');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+    projects.forEach(project => observer.observe(project));
   </script>
 
   <script>
-  const progressBar = document.getElementById('sectionProgressBar');
-  const sections = document.querySelectorAll('section');
-  const markers = document.querySelectorAll('.section-marker');
+    // Progress bar
+    const progressBar = document.getElementById('sectionProgressBar');
+    const sections = document.querySelectorAll('section');
+    const markers = document.querySelectorAll('.section-marker');
 
-  sections.forEach((section, index) => {
-    const sectionTop = section.offsetTop;
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const percent = (sectionTop / totalHeight) * 100;
-    if (markers[index]) {
-      markers[index].style.top = percent + '%';
-    }
-  });
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const percent = (sectionTop / totalHeight) * 100;
+      if (markers[index]) {
+        markers[index].style.top = percent + '%';
+      }
+    });
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / totalHeight) * 100;
-    progressBar.style.height = scrollPercent + '%';
-  });
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / totalHeight) * 100;
+      progressBar.style.height = scrollPercent + '%';
+    });
   </script>
 </body>
 </html>
