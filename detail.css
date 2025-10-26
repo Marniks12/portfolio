@@ -5,6 +5,8 @@ body {
 
 }
 
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -20,6 +22,18 @@ body {
     
 ;
 }
+
+.return {
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+
+    position: absolute;  /* Zorgt dat het op de header gepositioneerd wordt */
+    top: 20px;           /* Afstand van de bovenrand van het logo */
+    left: 20px;          /* Afstand van de linkerzijde van het logo */
+    z-index: 10;         /* Zorgt dat het boven het logo zichtbaar blijft */
+}
+
 
 .banner{
     display: flex;
