@@ -3,66 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Pagina</title>
+    <title>Brighfish Project</title>
     <link rel="stylesheet" href="detail.css">
-</head>
-<body>
-    <div class="header">
-      <a href="project.html">
-  <img class="return" src="./assets/Group 18.png" alt="Terug naar projecten">
-</a>
 
-     <h1 class="title">Brighfish Campaignplanner</h1>
+    <!-- VANTA.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+<body class="vanta-background">
+
+    <div class="header">
+        <a href="project.html">
+            <img class="return" src="./assets/Group 18.png" alt="Terug naar projecten">
+        </a>
+        <h1 class="title">Brighfish Campaignplanner</h1>
     </div>
 
     <main>
         <section class="concept">
             <h2>Het concept</h2>
-            <p> Context & Uitdaging
-Brightfish wilde zich richten op lokale bedrijven en KMO’s die nog nooit bioscoopreclame hadden geboekt.  Ze vroegen om een digitale tool waarmee adverteerders eenvoudig hun campagne konden plannen, kosten berekenen en hulp krijgen via een AI-chatbot..</p>
+            <p>Context & Uitdaging: Brightfish wilde zich richten op lokale bedrijven en KMO’s die nog nooit bioscoopreclame hadden geboekt. Ze vroegen om een digitale tool waarmee adverteerders eenvoudig hun campagne konden plannen, kosten berekenen en hulp krijgen via een AI-chatbot.</p>
         </section>
 
         <section class="doel">
             <h2>Het doel</h2>
-            <p>Een gebruiksvriendelijke campaign planner webapplicatie ontwikkelen die:
-Engelstalig en GDPR-proof is;
-de kostprijs berekent aan de hand van parameters (locatie, periode, doelgroep, spotduur);
-ondersteuning biedt via een geïntegreerde Botpress-chatbot;
-standalone én geïntegreerd in de Brightfish-website kan draaien.</p>
+            <p>Een gebruiksvriendelijke campaign planner webapplicatie ontwikkelen die:<br>
+            - Engelstalig en GDPR-proof is;<br>
+            - de kostprijs berekent aan de hand van parameters;<br>
+            - ondersteuning biedt via een geïntegreerde Botpress-chatbot;<br>
+            - standalone én geïntegreerd in de Brightfish-website kan draaien.</p>
         </section>
 
         <section class="proces">
-  <h2>Het proces</h2> <!-- titel boven grid -->
-
-  <div class="grid">
-    <div class="moodboard">
-      <h3>Het moodboard</h3>
-      <img src="./assets/moodboard.png" alt="Moodboard">
-    </div>
-
-    <div class="kleurenpalet">
-      <h3>Het kleurenpalet</h3>
-      <img src="./assets/kleurenpalet.png" alt="Kleurenpalet">
-    </div>
-
-    <div class="database">
-      <h3>De database</h3>
-      <img src="./assets/database.png" alt="Database">
-    </div>
-
-    <div class="wireframes">
-      <h3>Wireframes</h3>
-      <img src="./assets/wireframes.png" alt="Wireframes">
-      <img src="./assets/wireframess.png" alt="Wireframes">
-    </div>
-  </div>
-</section>
+            <h2>Het proces</h2>
+            <div class="grid">
+                <div class="moodboard">
+                    <h3>Het moodboard</h3>
+                    <img src="./assets/moodboard.png" alt="Moodboard">
+                </div>
+                <div class="kleurenpalet">
+                    <h3>Het kleurenpalet</h3>
+                    <img src="./assets/kleurenpalet.png" alt="Kleurenpalet">
+                </div>
+                <div class="database">
+                    <h3>De database</h3>
+                    <img src="./assets/database.png" alt="Database">
+                </div>
+                <div class="wireframes">
+                    <h3>Wireframes</h3>
+                    <img src="./assets/wireframes.png" alt="Wireframes">
+                    <img src="./assets/wireframess.png" alt="Wireframes">
+                </div>
+            </div>
+        </section>
 
         <section class="resultaat">
             <h2>Het resultaat</h2>
-            
             <img src="./assets/Group 16.png" alt="Resultaat">
         </section>
     </main>
+
+    <!-- VANTA Script -->
+   <script>
+VANTA.NET({
+    el: "body",                 // full body als achtergrond
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 800.0,
+    minWidth: 300.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: 0x28a745,            // donkergroen en smoother lijnen
+    backgroundColor: 0x1a1a1a   // donkere body achtergrond
+});
+</script>
+
+
 </body>
 </html>
+

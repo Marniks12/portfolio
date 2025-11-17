@@ -8,6 +8,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T6N32M74');</script>
   <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projecten</title>
@@ -15,7 +16,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     html {
-      scroll-behavior: smooth; /* smooth scroll toevoegen */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(270deg, #ffffff, #8EBC8E);
+      background-size: 600% 600%;
+      transition: background 0.3s linear;
     }
   </style>
 </head>
@@ -25,21 +32,10 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6N32M745"
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Verticale sectie-voortgangsbalk 
-  <div class="section-progress-container">
-    <div class="section-marker" data-section="About me"></div>
-    <div class="section-marker" data-section="Projecten"></div>
-    <div class="section-marker" data-section="Contact"></div>
-    <div class="section-progress-bar" id="sectionProgressBar"></div>
-  </div>-->
 
   <section class="nav">
     <ul>
-     <a href="index.html">
-  <img src="./assets/Group 17.png" alt="Home">
-</a>
+      <a href="index.html"><img src="./assets/Group 17.png" alt="Home"></a>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projecten</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -47,158 +43,189 @@
   </section>
 
   <section class="about" id="about">
-    <div class="profile">
-      <img class="profile-pic" src="./assets/selfie.png" alt="">
-      <p>Marvis Ojo</p>
+   <div class="profile">
+  <div class="profile-container">
+    <img class="profile-pic" src="./assets/selfie.png" alt="">
+    <div class="soft-skills">
+      <H3>Soft Skills</H3>
+      <p>Communicatief, Teamspeler, Creatief, Leergierig</p>
     </div>
+  </div>
+  <p>Marvis Ojo</p>
+</div>
 
     <div class="about-text">
       <p>
         I am a student at Thomas More studying Digital Experience Design. I have a passion for creating engaging and user-friendly digital experiences. My skills include web development, graphic design, and user experience design. I am always eager to learn new technologies and improve my skills.
       </p>
-      <p><strong>Let's connect!</strong></p>
+      <button class="connect-btn" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });">
+        Let's connect!
+      </button>
       <div class="socials">
         <i class="fa-brands fa-linkedin"></i>
         <i class="fa-brands fa-github"></i>
         <i class="fa-solid fa-envelope"></i>
       </div>
     </div>
-    <div class="education">
-      <h4>Opleiding</h4>
-      <p><strong>School:</strong> Thomasmore</p>
-      <p><strong>Studie:</strong> Digital experience design</p>
-      <p><strong>Duur:</strong> 2023-2026</p>
-    </div>
   </section>
 
-  <section class="info" id="skills">
-    <div class="skills-block">
-  <h4>Skills</h4>
-  <div class="skills">
-    <div class="skill-item">
-      <span><img src="./assets/html.png" alt="HTML"></span>
-      <p class="skill-percentage">85%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/css.png" alt="CSS"></span>
-      <p class="skill-percentage">90%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/js.png" alt="JS"></span>
-      <p class="skill-percentage">75%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/php.png" alt="PHP"></span>
-      <p class="skill-percentage">70%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/react.png" alt="React"></span>
-      <p class="skill-percentage">80%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/p5.png" alt="p5.js"></span>
-      <p class="skill-percentage">65%</p>
-    </div>
-    <div class="skill-item">
-      <span><img src="./assets/blender.png" alt="Blender"></span>
-      <p class="skill-percentage">60%</p>
+ <section class="info" id="skills">
+  <div class="skills-block">
+    <h4>Skills</h4>
+    <div class="skills">
+      
+      <div class="skill-item" data-skill="85%">
+        <div class="skill-icon"><img src="./assets/html.png" alt="HTML"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">85%</p>
+      </div>
+
+      <div class="skill-item" data-skill="90%">
+        <div class="skill-icon"><img src="./assets/css.png" alt="CSS"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">90%</p>
+      </div>
+
+      <div class="skill-item" data-skill="75%">
+        <div class="skill-icon"><img src="./assets/js.png" alt="JS"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">75%</p>
+      </div>
+
+      <div class="skill-item" data-skill="70%">
+        <div class="skill-icon"><img src="./assets/php.png" alt="PHP"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">70%</p>
+      </div>
+
+      <div class="skill-item" data-skill="80%">
+        <div class="skill-icon"><img src="./assets/react.png" alt="React"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">80%</p>
+      </div>
+
+      <div class="skill-item" data-skill="65%">
+        <div class="skill-icon"><img src="./assets/p5.png" alt="p5.js"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">65%</p>
+      </div>
+
+      <div class="skill-item" data-skill="60%">
+        <div class="skill-icon"><img src="./assets/blender.png" alt="Blender"></div>
+        <div class="skill-bar"><div class="skill-fill"></div></div>
+        <p class="skill-percentage">60%</p>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <div class="skills-bottom">
-    <div class="softskill">
-      <h4>Soft Skills</h4>
-      <p>Empathisch</p>
-      <p>Creatief</p>
-      <p>Teamplayer</p>
+
+     
+      </div>
     </div>
+<section id="projects" class="projects">
+  <h2>Mijn Projecten</h2>
+  <div class="projects-container">
 
-    <div class="languages">
-      <h4>Talen</h4>
-      <p>Nederlands</p>
-      <p>Engels</p>
-      <p>Frans</p>
-    </div>
-  </div>
-</div>
-
-  </section>
-
-  <section id="projects" class="projects">
-    <h2>Mijn Projecten</h2>
     <div class="project">
       <img src="./assets/bf.png" alt="">
       <div class="overlay">
-        <h3>Project Titel</h3>
-        <p>Korte beschrijving</p>
+        <h3>Brightfish</h3>
+      
         <a href="detail.html" class="explore-btn">Explore</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="./assets/image 20.png" alt="">
+      <div class="overlay">
+        <h3>Hot dog kiosk</h3>
+
+        <a href="detail2.html" class="explore-btn">Explore</a>
       </div>
     </div>
 
     <div class="project">
       <img src="./assets/bf2.png" alt="">
       <div class="overlay">
-        <h3>Project Titel</h3>
-        <p>Korte beschrijving</p>
+        <h3>Soundtrip</h3>
+        
+        <a href="detail3.html" class="explore-btn">Explore</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="./assets/work in.jpg" alt="">
+      <div class="overlay">
+        <h3>Project pending</h3>
+
         <a href="detail2.html" class="explore-btn">Explore</a>
       </div>
     </div>
-  </section>
+
+    <!-- Voeg meer projecten toe -->
+  </div>
+</section>
+
 
   <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Neem contact met ons op via onderstaand formulier:</p>
-
     <form action="submit_form.php" method="POST">
       <label for="name">Naam:</label>
       <input type="text" id="name" name="name" required>
-
       <label for="email">E-mail:</label>
       <input type="email" id="email" name="email" required>
-
       <label for="message">Bericht:</label>
       <textarea id="message" name="message" required></textarea>
-
       <button type="submit">Verzenden</button>
     </form>
-
     <a href="mailto:info@jouwdomein.nl">Of stuur direct een e-mail</a>
   </section>
 
-  <script>
-    // Intersection Observer voor projecten
-    const projects = document.querySelectorAll('.project');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-    projects.forEach(project => observer.observe(project));
-  </script>
+<script>
+  // Scroll-afhankelijke gradient met vloeiende animatie
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
 
-  <script>
-    // Progress bar
-    const progressBar = document.getElementById('sectionProgressBar');
-    const sections = document.querySelectorAll('section');
-    const markers = document.querySelectorAll('.section-marker');
+    // Start- en eindkleur van gradient
+    const startColor = { r: 255, g: 255, b: 255 }; // wit
+    const endColor = { r: 142, g: 188, b: 142 };   // groen
 
-    sections.forEach((section, index) => {
-      const sectionTop = section.offsetTop;
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      const percent = (sectionTop / totalHeight) * 100;
-      if (markers[index]) {
-        markers[index].style.top = percent + '%';
-      }
-    });
+    // Interpoleer kleuren
+    const r = Math.round(startColor.r + (endColor.r - startColor.r) * scrollPercent);
+    const g = Math.round(startColor.g + (endColor.g - startColor.g) * scrollPercent);
+    const b = Math.round(startColor.b + (endColor.b - startColor.b) * scrollPercent);
 
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / totalHeight) * 100;
-      progressBar.style.height = scrollPercent + '%';
-    });
-  </script>
+    // Tijd voor lichte animatie
+    const time = Date.now() * 0.0001; // langzaam verschuiven
+
+    // Dynamische gradient
+    document.body.style.background = `
+      linear-gradient(${270 + time * 50}deg,
+      rgb(${r},${g},${b}),
+      rgb(${Math.max(r-20,0)},${Math.max(g-20,0)},${Math.max(b-20,0)}))
+    `;
+  });
+</script>
+<script>
+document.querySelectorAll('.skill-item').forEach(item => {
+  const percentage = item.getAttribute('data-skill');
+  const fill = item.querySelector('.skill-fill');
+
+  item.addEventListener('mouseenter', () => {
+    fill.style.width = percentage;
+  });
+
+  item.addEventListener('mouseleave', () => {
+    fill.style.width = '0%';
+  });
+});
+</script>
+
 </body>
 </html>
+

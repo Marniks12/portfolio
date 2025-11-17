@@ -1,59 +1,91 @@
 /* Verbeterde sectie-progress-container */
 /* De navigatiebalk zelf */
+/* Voorkom horizontale scroll van de hele pagina */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Alleen de projecten-container mag horizontaal scrollen */
+.projects-container {
+  overflow-x: auto;  /* al aanwezig */
+}
+
 
 .nav {
   display: flex;
-  justify-content: center;   /* midden op de pagina */
+  justify-content: center;
   align-items: center;
   padding: 20px;
-  position: relative;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
+  background-color: transparent; /* lichte achtergrond voor sticky effect */
 }
 
 /* De “rechthoek” zelf */
 .nav ul {
   display: flex;
-  gap: 40px; /* ruimte tussen links */
+  align-items: center;
+  gap: 200px;
   list-style: none;
-  padding: 15px 40px; /* binnenruimte in de rechthoek */
+  padding: 15px 60px;
   margin: 0;
-  background-color: #cee7ce; /* kleur van de rechthoek */
-  border-radius: 20px;     /* afgeronde hoeken */
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* donkerdere schaduw */
-  border: 2px solid #ffffff;  /* optioneel, randje voor contrast */
+  background-color: #ffffff; /* <-- wit gemaakt */
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e0e0e0; /* subtiele grijze rand voor contrast */
+  width: 80%;
+  justify-content: center;
 }
+
+/* Icoon */
 .nav img {
   height: 40px;
-  margin-right: 20px;
+  width: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
 }
+
 /* De links binnen de rechthoek */
 .nav li a {
-  color: #111;
+  color: #2e2e2e; /* donkergrijs voor goed contrast op wit */
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
-/* Hover-effect op de tekst */
+/* Hover-effect */
 .nav li a:hover {
-  color: #555;
-}
-
-.nav {
-  position: sticky;
-  top: 0;
-  background-color: #f5f5f5; /* of wit, om contrast te houden */
+  color: #4caf50; /* zachte groene tint bij hover */
+  transform: scale(1.05);
 }
 
 
 body {
-    background-color: #f5f5f5; /* zachte donkere wit */
-    color: #111; /* standaard tekstkleur, donker genoeg voor contrast */
-
+  background: linear-gradient(270deg, #d8f3dc, #b7e4c7, #95d5b2);
+  background-size: 600% 600%;
+  animation: gradientShift 10s ease infinite;
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
 .section-progress-container {
   position: fixed;
   top: 0;
@@ -120,43 +152,65 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
 }
 
-.profile {
-  flex: 1;
-  text-align: center;
+.profile-container {
   position: relative;
-}
-
-.softskill  {
-  display: grid;
-  align-items: left;
-  margin-left: 200px;
-  color: #3d5243;
-  margin-bottom: 20px;
-}
-
-.profile-pic {
-  width: 220px; /* kleiner */
+  width: 220px;   /* pas aan naar jouw gewenste grootte */
   height: 220px;
-  border-radius: 16px;
-  border: 3px solid #3d5243;
+  overflow: hidden;
+  border-radius: 12px; /* vierkante look met zachte hoekjes */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* De foto zelf */
+.profile-pic {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
   position: relative;
   z-index: 2;
 }
 
-/* optioneel: leuk “kaartje” effect achter foto */
-.profile::before {
-  content: "";
+/* De tekst die onder de foto zit */
+.soft-skills {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 100%; /* volledig onder de container */
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #3d5243;
-  border-radius: 16px;
-  transform: rotate(4deg);
+  background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  color: #2f3d31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
   z-index: 1;
+  transition: top 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
+
+/* Hover: foto schuift omhoog, tekst komt volledig in beeld */
+.profile-container:hover .profile-pic {
+  transform: translateY(-100%);
+}
+
+.profile-container:hover .soft-skills {
+  top: 0;
+  opacity: 1;
+}
+
+
+
+
+
+
+
 
 .about-text {
   flex: 2;
@@ -166,13 +220,32 @@ body {
 }
 
 
-
-
-.profile p {
-  margin-top: 10px;
-  font-style: italic;
-  color: #3d5243;
+.connect-btn {
+  background-color: #a5d9a5; /* fris groen */
+  color: black;
+  border: none;
+  padding: 14px 32px; /* iets groter */
+  border-radius: 10px;
+  font-size: 1.2rem; /* iets grotere tekst */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.connect-btn:hover {
+  background-color: #218838; /* iets donkerder bij hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.explore-btn{
+  text-decoration: none;
+}
+
+
+
+
 
 .socials {
   margin-top: 20px;
@@ -196,178 +269,167 @@ body {
   gap: 10px;
 }
 
-.skills-block {
+
+/* Skills als cirkel met hover-progress */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.skill-item {
+  width: 120px;
+  height: 140px;
+  background: rgb(222, 222, 222);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  color: #218838;
+}
+
+.skill-icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  
+}
+
+.skill-bar {
+  width: 80%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #8EBC8E, #a5d9a5);
+  border-radius: 5px;
+  transition: width 1.2s ease-out;
+}
+
+.skill-percentage {
+  position: absolute;
+  bottom: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #2e3d33;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover: toon percentage */
+.skill-item:hover .skill-percentage {
+  opacity: 1;
+}
+
+.projects {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background-color: #f4f7f4; /* zelfde als about */
+  background-color: #f4f7f4;
   border-radius: 20px;
   width: 80%;
   margin: 60px auto;
   padding: 60px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
-.skills-block h4 {
-  font-size: 24px;
-  color: #3d5243;
-  margin-bottom: 20px;
-}
-
-.skills {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  justify-items: center;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.skill-percentage {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #3d5243;
-}
-
-/* Softskills en talen naast elkaar */
-.skills-bottom {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 40px;
-}
-
-.skills-bottom .softskill,
-.skills-bottom .languages {
-  flex: -2;
-  text-align: center;
-}
-
-.skills-bottom h4 {
-  margin-bottom: 15px;
-  color: #3d5243;
-}
-
-
-/* Skills als cirkel met hover-progress */
-.skills span {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: #e0e5e0; /* neutrale achtergrond */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.skills span:hover {
-  transform: scale(1.05);
-}
-
-/* Circular progress effect */
-.skills span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: conic-gradient(#8EBC8E 0% 0%, transparent 0% 100%);
-  z-index: 1;
-  transition: background 0.5s ease;
-}
-
-.skills span:hover::before {
-  background: conic-gradient(#8EBC8E 0% 100%, transparent 0% 0%);
-}
-
-/* Icon blijft zichtbaar boven progress */
-.skills span img {
-  width: 60px;
-  height: 60px;
-  z-index: 2;
-  position: relative;
-
-}
-
-
-/* Projecten Sectie */
-
-.projects {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #f4f7f4; /* zachte, cleane kleur */
-  border-radius: 20px;
-  width: 80%;               /* minder breed dan hele pagina */
-  margin: 60px auto;        /* centreert de sectie */
-  padding: 60px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
-}
 .projects h2 {
   text-align: center;
   color: #3d5243;
   margin-bottom: 30px;
 }
+
+/* Horizontale scroll wrapper */
+.projects-container {
+  display: flex;
+  gap: 20px; /* ruimte tussen projecten */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+/* Verberg verticale scrollbar */
+.projects-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background-color: #8EBC8E;
+  border-radius: 4px;
+}
+
+/* Project items */
 .project {
+  flex: 0 0 auto;          /* voorkom dat items krimpen */
+  width: 300px;             /* breedte per project */
+  scroll-snap-align: start; /* snap naar begin van project */
   position: relative;
-  width: 50%;          /* past bij je afbeelding */
-  margin: 0 auto;      /* center de box */
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Afbeelding */
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
 .project img {
-  display: block;
   width: 100%;
+  display: block;
   transition: transform 0.3s ease;
 }
 
-/* Overlay blok */
+.project:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay */
 .project .overlay {
   position: absolute;
-  top: 0;               /* start bovenaan */
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
   color: #fff;
-  
-  transform: translateY(100%); /* start buiten beeld onderaan */
+  transform: translateY(100%);
   transition: transform 0.3s ease;
-  z-index: 2;           /* overlay boven de afbeelding */
-}
-
-/* Hover effect */
-.project:hover img {
-  transform: scale(1.05);
+  z-index: 2;
 }
 
 .project:hover .overlay {
-transform: translateY(0); /* schuift overlay omhoog over de afbeelding */
+  transform: translateY(0);
 }
 
-
-/* Overlay tekst */
 .project .overlay h3 {
   margin: 0 0 10px 0;
   font-size: 22px;
@@ -378,7 +440,6 @@ transform: translateY(0); /* schuift overlay omhoog over de afbeelding */
   font-size: 14px;
 }
 
-/* Explore knop */
 .project .explore-btn {
   padding: 12px 24px;
   background-color: #8EBC8E;
@@ -387,52 +448,11 @@ transform: translateY(0); /* schuift overlay omhoog over de afbeelding */
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .project .explore-btn:hover {
   background-color: #76a66e;
-}
-
-/* --- Scroll Fade-in Animatie --- */
-
-.project {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Zodra zichtbaar */
-.project.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Projecten centreren beter */
-.projects {
-  padding: 60px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-    
-}
-
-.project {
-  position: relative;
-  width: 50%;
-  background-color: grey; /* witte achtergrond */
-    border-radius: 10px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtiele schaduw */
-}
-
-.project img {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
 }
 
 /* Contact */

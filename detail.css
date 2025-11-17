@@ -1,254 +1,160 @@
-/* Basisstijl op basis van screenshot (lichte achtergrond, donkere tekst) */
+/* Body & achtergrond */
 body {
-    background-color: #f5f5f5; /* zachte donkere wit */
-    color: #111; /* standaard tekstkleur, donker genoeg voor contrast */
-
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #1a1a1a; /* donkere achtergrond */
+    color: #eee;
+    position: relative;
+    z-index: 0;
 }
 
-
-
-.header {
+/* Header */
+.header, .banner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-    background-image: url(./assets/brightfishlogo.png);
-    background-size: cover;       /* Maakt de afbeelding volledig zichtbaar en vult het element */
-    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
-    background-position: center;  /* Centreert de afbeelding */
-    border-bottom: 1px solid #ddd;
     height: 250px;
-    margin-top: -8px;
-    
-;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 1px solid #333;
+}
+
+.header .title, .banner .title {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .return {
     width: 160px;
     height: 40px;
     cursor: pointer;
-
-    position: absolute;  /* Zorgt dat het op de header gepositioneerd wordt */
-    top: 20px;           /* Afstand van de bovenrand van het logo */
-    left: 20px;          /* Afstand van de linkerzijde van het logo */
-    z-index: 10;         /* Zorgt dat het boven het logo zichtbaar blijft */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
 
-
-.banner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-
-    background-size: cover;       /* Maakt de afbeelding volledig zichtbaar en vult het element */
-    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
-    background-position: center;  /* Centreert de afbeelding */
-    border-bottom: 1px solid #ddd;
-    height: 250px;
-    margin-top: -8px;
-    
-;
-}
-
-/* achtergrondvideo */
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  object-fit: cover;  /* vult de container zonder vervormen */
-  z-index: 0;
-}
-
-/* donkere overlay voor contrast */
-/* donkere overlay voor contrast */
-
-/* Titel centreren */
-.banner .title {
-    position: absolute; /* Absoluut tov .header */
-    top: 20%;           /* Verticaal midden */
-    left: 50%;          /* Horizontaal midden */
-    transform: translate(-50%, -50%); /* Precisie center */
-    color:  white;       /* Kleur aanpassen zodat het zichtbaar is */
-    font-size: 5rem;    /* Pas grootte naar wens aan */
-    text-align: center;
-    font-weight: bold;
-}
-
-.logo {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-
-/* Titel centreren */
-.header .title {
-    position: absolute; /* Absoluut tov .header */
-    top: 20%;           /* Verticaal midden */
-    left: 50%;          /* Horizontaal midden */
-    transform: translate(-50%, -50%); /* Precisie center */
-    color: white;       /* Kleur aanpassen zodat het zichtbaar is */
-    font-size: 3rem;    /* Pas grootte naar wens aan */
-    text-align: center;
-}
+/* Main */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
+/* Secties */
 section {
     margin-bottom: 60px;
+    background-color: #fff; /* witte achtergrond */
+    border-radius: 15px;
+    padding: 40px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #688A68;
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
 }
 
-
-p {
+/* Sectie inhoud */
+section p {
     max-width: 800px;
+    margin: 0 auto;
     line-height: 1.6;
-}
- 
-.concept{
-    display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #f4f7f4; /* zachte, cleane kleur */
-  border-radius: 20px;
-  width: 75%;               /* minder breed dan hele pagina */
-  margin: 60px auto;        /* centreert de sectie */
-  padding: 60px;
-  height: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
+    color: #555;
+    text-align: center;
 }
 
-.doel{
-    display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #f4f7f4; /* zachte, cleane kleur */
-  border-radius: 20px;
-  width: 75%;               /* minder breed dan hele pagina */
-  margin: 60px auto;        /* centreert de sectie */
-  padding: 60px;
-  height: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
-}
-.proces {
-  background-color: #f4f7f4;
-  border-radius: 20px;
-  width: 75%;
-  margin: 60px auto;
-  padding: 60px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
-}
-
-.proces h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-}
-
-/* het grid zelf */
+/* Proces grid (voor alle projecten) */
 .proces .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto auto;
-  gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
-/* de rest mag blijven zoals eerder */
-
-/* elk blok mooi opmaken */
-.proces div {
+.proces .grid div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.proces img {
+.proces img, .resultaat img, .kiosk img, .soundweb img, .soundapp img, video {
     max-width: 100%;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.iteraties {
+
+/* Soundapplicatie / video resultaat */
+.soundapplicatie > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.soundweb, .soundapp {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-.iteraties img{
     max-width: 45%;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    
 }
 
-/* specifieke positionering */
-.moodboard {
-    grid-column: 1; /* eerste kolom */
-    grid-row: 1;    /* eerste rij */
+.soundweb video, .soundapp video {
+    width: 100%;
+    height: auto;
 }
-
-.kleurenpalet {
-    grid-column: 2; /* tweede kolom */
-    grid-row: 1;
-}
-
-.database {
-    grid-column: 1 / span 2; /* midden, over beide kolommen */
-    grid-row: 2;
-}
-
-.wireframes {
-    grid-column: 1 / span 2; /* onderaan, over beide kolommen */
-    grid-row: 3;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.resultaat {
-    display: grid;
-    grid-template-columns: repeat( 1fr); /* 2 kolommen */
-    grid-template-rows: auto auto auto;     /* 3 rijen */
-    gap: 40px;                              /* ruimte tussen items */
-    background-color: #f4f7f4;
+/* Secties standaard semi-transparant */
+.concept, .doel, .proces, .resultaat, .kiosk, .soundapplicatie {
+    background-color: rgba(255, 255, 255, 0.15); /* licht wit, transparant */
     border-radius: 20px;
     width: 75%;
     margin: 60px auto;
     padding: 60px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     text-align: center;
+    transition: background-color 0.3s ease; /* smooth hover */
+    border: 1px solid rgba(255, 255, 255, 0.25); /* lichte border zodat het iets afsteekt */
 }
 
-.kiosk{
-    display: grid;
-    grid-template-columns: repeat( 1fr); /* 2 kolommen */
-    grid-template-rows: auto auto auto;     /* 3 rijen */
-    gap: 40px;                              /* ruimte tussen items */
-    background-color: #f4f7f4;
-    border-radius: 20px;
-    align-items: center;
-    width: 75%;
-    margin: 10px auto;
-    padding: 60px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
-    text-align: center;
-
+/* Hover: iets witter */
+.concept:hover, .doel:hover, .proces:hover, .resultaat:hover, .kiosk:hover, .soundapplicatie:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.9);
 }
 
-.kiosk img{
-    justify-content: center;
-    align-items: center;
-    max-width: 75%;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    
+/* Banner video */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 1;
 }
