@@ -1,7 +1,7 @@
 /* Body & achtergrond */
 body {
     margin: 0;
-    font-family: sans-serif;
+font-family: "Georgia", serif;
     background-color: #1a1a1a; /* donkere achtergrond */
     color: #eee;
     position: relative;
@@ -121,7 +121,7 @@ section p {
 }
 /* Secties standaard semi-transparant */
 .concept, .doel, .proces, .resultaat, .kiosk, .soundapplicatie {
-    background-color: rgba(255, 255, 255, 0.15); /* licht wit, transparant */
+    background-color: rgba(255, 255, 255, 0.497); /* licht wit, transparant */
     border-radius: 20px;
     width: 75%;
     margin: 60px auto;
@@ -157,4 +157,130 @@ section p {
     height: 100%;
     background: rgba(0,0,0,0.3);
     z-index: 1;
+}
+/* =============================== */
+/*         TABLET 1024px          */
+/* =============================== */
+@media (max-width: 1024px) {
+
+    section {
+        width: 85%;
+        padding: 40px;
+    }
+
+    .proces .grid {
+        grid-template-columns: 1fr; /* 1 kolom */
+        gap: 30px;
+    }
+
+    .soundweb, .soundapp {
+        max-width: 80%;
+    }
+
+    .soundapplicatie > div {
+        gap: 30px;
+    }
+
+    .header .title {
+        font-size: 2.3rem;
+    }
+
+}
+
+
+
+/* =============================== */
+/*         MOBILE 768px            */
+/* =============================== */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header {
+        height: 180px;
+    }
+
+    .header .title {
+        font-size: 1.8rem;
+        width: 90%;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .return {
+        width: 120px;
+        height: 32px;
+        top: 15px;
+        left: 15px;
+    }
+
+    /* Secties */
+    section,
+    .concept, .doel, .proces, .resultaat, .kiosk, .soundapplicatie {
+        width: 90%;
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    section p {
+        font-size: 14px;
+    }
+
+    /* Grids */
+    .proces .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .proces .grid img {
+        width: 100%;
+    }
+
+    /* Soundtrip */
+    .soundapplicatie > div {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .soundweb, .soundapp {
+        max-width: 100%;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+
+
+/* =============================== */
+/*         SMALL MOBILE 480px      */
+/* =============================== */
+@media (max-width: 480px) {
+
+    .header .title {
+        font-size: 1.5rem;
+    }
+
+    .return {
+        width: 100px;
+        height: 28px;
+    }
+
+    section {
+        padding: 25px;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    .proces .grid {
+        gap: 15px;
+    }
 }

@@ -160,3 +160,73 @@ header {
     padding: 14px 36px;
   }
 }
+
+
+
+/* -------------------------------------- */
+/*   TABLET RESPONSIVE (max-width: 1024px) */
+/* -------------------------------------- */
+@media (max-width: 1024px) {
+
+  header {
+    padding: 15px 25px;
+  }
+
+  .header-right {
+    gap: 20px;
+  }
+
+  .title h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  #projectBtn {
+    font-size: 1.3rem;
+    padding: 15px 40px;
+  }
+
+  .button-container {
+    top: 70%;
+  }
+}
+
+
+/* -------------------------------------- */
+/*   MOBILE RESPONSIVE (max-width: 600px) */
+/* -------------------------------------- */
+@media (max-width: 600px) {
+
+  /* Header compact maken */
+  header {
+    padding: 10px 15px;
+  }
+
+  .header-right {
+    gap: 15px;
+  }
+
+  .header-right a {
+    font-size: 0.9rem;
+  }
+
+  /* Titel kleiner & leesbaarder */
+  .title h1 {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
+    padding: 0 20px;
+  }
+
+  /* Knop centreren & kleiner maken */
+  .button-container {
+    top: 75%;
+  }
+
+  #projectBtn {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+  }
+
+  /* Bubbels kleiner voor mobiel */
+  .bubble {
+    width: calc(18px * var(--i));
+  }
+}

@@ -3,6 +3,7 @@
 /* Voorkom horizontale scroll van de hele pagina */
 html, body {
   overflow-x: hidden;
+  font-family: "Georgia", serif;
 }
 
 /* Alleen de projecten-container mag horizontaal scrollen */
@@ -544,4 +545,211 @@ footer {
   padding: 15px 0;
   font-size: 14px;
   margin-top: 20px;
+}
+
+/* ========================================= */
+/*    MOBIEL FIXES – PROJECT PAGINA (600px) */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+    /* GLOBAL BOX SIZING */
+    * ,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    /* NAV */
+    .nav {
+        padding: 0;
+        margin: 0 0 10px 0; /* ruimte onder nav */
+    }
+
+    .nav ul {
+        width: 100%;
+        max-width: 95%;
+        padding: 10px 10px;
+        gap: 10px; 
+        display: flex;
+        flex-wrap: wrap; /* zorgt dat items niet uit elkaar lopen */
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .nav li a {
+        font-size: 0.75rem; /* kleinere tekst voor smalle schermen */
+    }
+
+    .nav img {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* ABOUT */
+    .about {
+        width: 100%;
+        max-width: 95%;
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+        margin: 0 auto 15px auto; /* marge onder About voor spacing */
+    }
+
+    .profile-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about-text {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .connect-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+
+    /* SKILLS */
+    .info {
+        width: 100%;
+        max-width: 95%;
+        padding: 15px;
+        margin: 0 auto 15px auto;
+    }
+
+    .skills {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+.skill-item {
+        width: 70px;          /* iets smaller voor mobiel */
+        height: auto;         /* hoogte automatisch zodat tekst en bar passen */
+        display: flex;
+        flex-direction: column; /* stapel percentage en bar onder elkaar */
+        align-items: center;
+        gap: 5px;             /* ruimte tussen icon, percentage en bar */
+    }
+
+    .skill-icon {
+        margin-bottom: 5px;
+    }
+
+    .skill-percentage {
+        font-size: 12px;      /* kleinere tekst voor mobiel */
+        line-height: 1.2;
+    }
+
+    .skill-bar {
+        width: 100%;          /* volledige breedte van de skill-item */
+        height: 6px;          /* kleinere hoogte voor mobiel */
+        border-radius: 4px;
+        background-color: #ddd;
+        margin-top: 2px;
+    }
+
+    .skill-bar-fill {
+        height: 100%;
+        border-radius: 4px;
+    }
+    
+    /* PROJECTS */
+    .projects {
+        width: 100%;
+        max-width: 95%;
+        padding: 15px;
+        margin: 0 auto 15px auto;
+    }
+
+    .projects-container {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 5px;
+    }
+
+    .project {
+        flex: 0 0 auto;
+        width: 150px;
+    }
+
+    .project .overlay h3 {
+        font-size: 13px;
+    }
+
+    .explore-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    /* CONTACT */
+    .contact {
+        width: 100%;
+        max-width: 95%;
+        padding: 15px;
+        border-radius: 12px;
+        margin: 0 auto 15px auto;
+    }
+
+    .contact form {
+        width: 100%;
+    }
+
+    .contact input,
+    .contact textarea {
+        font-size: 13px;
+    }
+
+    .contact button,
+    .contact a {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+}
+
+/* ============================= */
+/*       TABLET (max 1024px)     */
+/* ============================= */
+
+@media (max-width: 1024px) {
+
+  /* NAV */
+  .nav ul {
+    gap: 80px;
+    width: 90%;
+  }
+
+  /* ABOUT */
+  .about {
+    width: 85%;
+    padding: 40px;
+  }
+
+  .about-text {
+    font-size: 15px;
+  }
+
+  /* SKILLS */
+  .info {
+    padding: 40px 60px;
+  }
+
+  /* PROJECTS */
+  .projects {
+    width: 85%;
+    padding: 40px;
+  }
+
+  .project {
+    width: 260px;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 40px 60px;
+  }
+
 }
