@@ -1,6 +1,87 @@
 /* Verbeterde sectie-progress-container */
 /* De navigatiebalk zelf */
 /* Voorkom horizontale scroll van de hele pagina */
+
+/* ========================================================= */
+/*                 DREAMY APPLE AESTHETIC CSS                */
+/* ========================================================= */
+
+/* ---------------------- VARIABLES ------------------------ */
+:root {
+  --accent: #8EBC8E;
+  --accent-soft: rgba(142, 188, 142, 0.15);
+
+  --text-main: #111;
+  --text-muted: #555;
+
+  --radius-lg: 28px;
+  --shadow-soft: 0 28px 60px rgba(0,0,0,0.14);
+  --shadow-small: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* ========================================================= */
+/*                      GLOBAL RESET                        */
+/* ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================================= */
+/*                 DREAMY BACKGROUND EFFECTS                 */
+/* ========================================================= */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  color: var(--text-main);
+
+  /* dreamy apple glass gradient */
+  background: radial-gradient(
+      circle at 20% 20%,
+      #f4fdf8 0%,
+      #e8f6ff 35%,
+      #eef6ef 100%
+  ) fixed;
+
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* subtle grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* floating pastel blob */
+body::before {
+  content: "";
+  position: fixed;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(150, 220, 170, 0.28), transparent 70%);
+  top: -240px;
+  left: -240px;
+  filter: blur(90px);
+  opacity: 0.8;
+  animation: floatBlob 14s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0px, 0px); }
+  100% { transform: translate(70px, 45px); }
+}
+
 html, body {
   overflow-x: hidden;
   font-family: "Georgia", serif;
@@ -12,19 +93,27 @@ html, body {
 }
 
 
+body {
+  padding-top: 160px; /* meer ruimte onder de nav */
+}
+
+/* ===== NAV ALTIJD BOVEN, MET BLUR ===== */
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: transparent; /* lichte achtergrond voor sticky effect */
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* De “rechthoek” zelf */
+/*     NAV-CONTAINER (de witte brede balk)     */
 .nav ul {
   display: flex;
   align-items: center;
@@ -32,13 +121,26 @@ html, body {
   list-style: none;
   padding: 15px 60px;
   margin: 0;
-  background-color: #ffffff; /* <-- wit gemaakt */
+  background-color: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-  border: 2px solid #e0e0e0; /* subtiele grijze rand voor contrast */
-  width: 80%;
-  justify-content: center;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
+
+/* ===== GROENE LIJN DIRECT TEGEN DE NAV ===== */
+.nav-scroll-line {
+  position: fixed;
+  top: 107px;   /* ← DIRECT ONDER DE NAV */
+  left: 0;
+  height: 13px;
+  width: 100%;
+  background: linear-gradient(90deg, #D4AF37, #F2D16B); /* Goud → Lichter goud */
+  z-index: 9998;
+  border-radius: 5px;
+}
+
+
+
 
 /* Icoon */
 .nav img {
@@ -66,11 +168,7 @@ html, body {
 }
 
 
-body {
-  background: linear-gradient(270deg, #d8f3dc, #b7e4c7, #95d5b2);
-  background-size: 600% 600%;
-  animation: gradientShift 10s ease infinite;
-}
+
 
 @keyframes gradientShift {
   0% {
@@ -139,77 +237,192 @@ body {
   opacity: 0.9;
 }
 
-
+/* ===== ABOUT CARD ===== */
 .about {
   display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #f4f7f4; /* zachte, cleane kleur */
-  border-radius: 20px;
-  width: 75%;               /* minder breed dan hele pagina */
-  margin: 60px auto;        /* centreert de sectie */
-  padding: 60px;
-  height: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55); /* subtiele diepte */
+  justify-content: center;
+  margin: 80px 0;
 }
 
-.profile-container {
+.about-card {
+  width: 75%;
+  background: #ffffffdd;
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  display: flex;
+  gap: 50px;
+  border-radius: 28px;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.14);
   position: relative;
-  width: 220px;   /* pas aan naar jouw gewenste grootte */
-  height: 220px;
-  overflow: hidden;
-  border-radius: 12px; /* vierkante look met zachte hoekjes */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 
-/* De foto zelf */
+/* LEFT COLUMN */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== FIXED SLIDE-UP SYSTEM ===== */
+
+.profile-image-container {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+/* Foto */
 .profile-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
+  transform: translateY(0);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* De tekst die onder de foto zit */
-.soft-skills {
+/* Tekstballon — groter + gecentreerd */
+.peek-message {
   position: absolute;
-  top: 100%; /* volledig onder de container */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  bottom: -90px;                   /* goed boven/onder gecentreerd */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  background: #ffffffee;
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity .5s ease, bottom .5s ease;
+  font-weight: 600;
   color: #2f3d31;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 20px;
-  opacity: 0;
-  z-index: 1;
-  transition: top 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s ease;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  box-sizing: border-box;
+  align-items: center;
 }
 
-/* Hover: foto schuift omhoog, tekst komt volledig in beeld */
-.profile-container:hover .profile-pic {
-  transform: translateY(-100%);
+/* ===== EFFECT ===== */
+
+.about-card:hover .profile-pic {
+  transform: translateY(-85%); /* Foto volledig omhoog */
 }
 
-.profile-container:hover .soft-skills {
-  top: 0;
+.about-card:hover .peek-message {
+  bottom: 20px;   /* mooi in het midden */
   opacity: 1;
 }
 
+/* ===== AUTO RESET NA 5 SEC ===== */
+
+.about-card:hover .profile-pic {
+  animation: slideBack 5s forwards;
+}
+
+.about-card:hover .peek-message {
+  animation: hideMsg 5s forwards;
+}
+
+@keyframes slideBack {
+  0% { transform: translateY(-85%); }
+  80% { transform: translateY(-85%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes hideMsg {
+  0% { opacity: 1; bottom: 20px; }
+  80% { opacity: 1; bottom: 20px; }
+  100% { opacity: 0; bottom: -90px; }
+}
 
 
+/* Soft skills card */
+.softskills-card {
+  width: 240px;
+  background: #ffffffdd;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  text-align: center;
+}
 
+.softskills-card h3 {
+  font-size: 1.5rem;
+  color: #3d5243;
+  margin-bottom: 10px;
+}
 
+.softskills-card p {
+  color: #5a6b5e;
+  line-height: 1.5;
+}
+
+/* RIGHT COLUMN (TEXT + BUTTON + SOCIALS) */
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #344434;
+}
+
+/* Connect button */
+.connect-btn {
+  background-color: #8EBC8E;
+  padding: 15px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: fit-content;
+}
+
+.connect-btn:hover {
+  background-color: #76a66e;
+  transform: scale(1.04);
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  gap: 20px;
+  margin-top: 5px;
+}
+
+.socials a {
+  font-size: 26px;
+  color: #3d5243;
+  transition: 0.3s ease;
+}
+
+.socials a:hover {
+  color: #8EBC8E;
+  transform: translateY(-4px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-column {
+    align-items: center;
+  }
+}
 
 
 
@@ -259,30 +472,49 @@ body {
   cursor: pointer;
 }
 
-/* Info Onder */
+/* ============================= */
+/*        INFO (SKILLS)          */
+/* ============================= */
+
+/* Lijn de hele sectie uit met ABOUT */
 .info {
-  
+  width: 75%;               /* zelfde breedte als .about */
+  max-width: 1100px;        /* optionele max width voor mooie centrering */
+  margin: 50px auto;        /* centreren + extra ruimte boven */
+  padding: 20px 0;          /* niet te breed, clean */
   color: #000;
-  padding: 40px 120px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
+  flex-direction: column;   /* Titel bovenaan, skills eronder */
+  align-items: center;      /* center content */
+  gap: 20px;                /* subtiele ruimte tussen titel en grid */
 }
 
+/* Titel zelf */
+.info h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2e3d33;
+  margin-bottom: 10px;
+  align-self: flex-start;  /* titel mooi links, zoals About */
+}
 
-/* Skills als cirkel met hover-progress */
+/* ============================= */
+/*         SKILLS GRID           */
+/* ============================= */
+
 .skills {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  justify-content: center;
+  justify-content: center;  /* mooi centreren */
+  width: 100%;
 }
 
+/* Skill item */
 .skill-item {
   width: 120px;
   height: 140px;
-  background: rgb(222, 222, 222);
+  background: rgb(222,222,222);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   display: flex;
@@ -341,6 +573,7 @@ body {
   opacity: 1;
 }
 
+
 .projects {
   display: flex;
   flex-direction: column;
@@ -363,7 +596,7 @@ body {
 /* Horizontale scroll wrapper */
 .projects-container {
   display: flex;
-  gap: 20px; /* ruimte tussen projecten */
+  gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -371,7 +604,6 @@ body {
   width: 100%;
 }
 
-/* Verberg verticale scrollbar */
 .projects-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -381,11 +613,11 @@ body {
   border-radius: 4px;
 }
 
-/* Project items */
+/* Project item */
 .project {
-  flex: 0 0 auto;          /* voorkom dat items krimpen */
-  width: 300px;             /* breedte per project */
-  scroll-snap-align: start; /* snap naar begin van project */
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -400,14 +632,34 @@ body {
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+/* ⭐ STERKE POP FOTO EFFECT (WERKT NU WEL) */
+.project:hover img {
+  transform: scale(1.18) translateY(-20px);
+  filter: drop-shadow(0 25px 35px rgba(0,0,0,0.45));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-30deg);
+  transition: 0.6s;
+}
+
+.project:hover::after {
+  left: 150%;
+}
+
 .project img {
   width: 100%;
   display: block;
   transition: transform 0.3s ease;
-}
-
-.project:hover img {
-  transform: scale(1.05);
 }
 
 /* Overlay */
@@ -545,7 +797,12 @@ footer {
   padding: 15px 0;
   font-size: 14px;
   margin-top: 20px;
-}
+}/* ===== Sticky NAV ===== */
+
+
+
+
+
 
 /* ========================================= */
 /*    MOBIEL FIXES – PROJECT PAGINA (600px) */
@@ -751,5 +1008,6 @@ footer {
   .contact {
     padding: 40px 60px;
   }
+
 
 }

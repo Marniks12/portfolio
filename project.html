@@ -19,11 +19,7 @@
       scroll-behavior: smooth;
     }
 
-    body {
-      background: linear-gradient(270deg, #ffffff, #8EBC8E);
-      background-size: 600% 600%;
-      transition: background 0.3s linear;
-    }
+    
   </style>
 </head>
 <body>
@@ -32,47 +28,73 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6N32M745"
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-
-  <section class="nav">
+<section class="nav"> 
     <ul>
       <a href="index.html"><img src="./assets/Group 17.png" alt="Home"></a>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projecten</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+</section>
 
-  <section class="about" id="about">
-   <div class="profile">
-  <div class="profile-container">
-    <img class="profile-pic" src="./assets/selfie.png" alt="">
-    <div class="soft-skills">
-      <H3>Soft Skills</H3>
-      <p>Communicatief, Teamspeler, Creatief, Leergierig</p>
+<!-- DEZE MOET HIER KOMEN, BUITEN DE NAV -->
+<div class="nav-scroll-line"></div>
+
+<section class="about">
+  <div class="about-card">
+
+    <!-- PROFILE IMAGE + SOFT SKILLS -->
+    <div class="left-column">
+     <div class="profile-image-container">
+    <img class="profile-pic" src="./assets/selfie.png" alt="Marvis Ojo">
+
+    <div class="peek-message">
+        Hey hallo daar, dit ben ik btw 😄
     </div>
-  </div>
-  <p>Marvis Ojo</p>
 </div>
 
-    <div class="about-text">
-     <p>
-  Ik ben een student aan Thomas More en studeer Digital Experience Design. 
-  Ik heb een passie voor het creëren van boeiende en gebruiksvriendelijke 
-  digitale ervaringen. Mijn vaardigheden omvatten webontwikkeling, grafisch 
-  ontwerp en user experience design. Ik ben altijd leergierig en gemotiveerd om 
-  nieuwe technologieën te ontdekken en mijn vaardigheden verder te verbeteren.
-</p>
 
-      <button class="connect-btn" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });">
-        Let's connect!
-      </button>
-      <div class="socials">
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-solid fa-envelope"></i>
+      <div class="softskills-card">
+        <h3>Soft<br>Skills</h3>
+        <p>Communicatief,<br>Teamspeler,<br>Creatief,<br>Leergierig</p>
       </div>
     </div>
-  </section>
+
+    <!-- ABOUT TEXT -->
+    <div class="right-column">
+      <p>
+        Ik ben een student aan Thomas More en studeer Digital Experience Design. 
+        Ik heb een passie voor het creëren van boeiende en gebruiksvriendelijke digitale ervaringen. 
+        Mijn vaardigheden omvatten webontwikkeling, grafisch ontwerp en user experience design. 
+        Ik ben altijd leergierig en gemotiveerd om nieuwe technologieën te ontdekken en 
+        mijn vaardigheden verder te verbeteren.
+      </p>
+
+      <!-- BUTTON -->
+      <button class="connect-btn">
+        Let's connect!
+      </button>
+
+      <!-- SOCIAL ICONS (CLICKABLE) -->
+      <div class="socials">
+        <a href="https://www.linkedin.com/feed/" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/Marniks12" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="mailto:r0997634@student.thomasmore.be">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
  <section class="info" id="skills">
   <div class="skills-block">
@@ -137,7 +159,6 @@
       <img src="./assets/bf.png" alt="">
       <div class="overlay">
         <h3>Brightfish</h3>
-      
         <a href="detail.html" class="explore-btn">Explore</a>
       </div>
     </div>
@@ -146,7 +167,6 @@
       <img src="./assets/image 20.png" alt="">
       <div class="overlay">
         <h3>Hot dog kiosk</h3>
-
         <a href="detail2.html" class="explore-btn">Explore</a>
       </div>
     </div>
@@ -155,7 +175,6 @@
       <img src="./assets/bf2.png" alt="">
       <div class="overlay">
         <h3>Soundtrip</h3>
-        
         <a href="detail3.html" class="explore-btn">Explore</a>
       </div>
     </div>
@@ -164,14 +183,13 @@
       <img src="./assets/work in.jpg" alt="">
       <div class="overlay">
         <h3>Project pending</h3>
-
-        <a href="detail2.html" class="explore-btn">Explore</a>
+        <a href="detail4.html" class="explore-btn">Explore</a>
       </div>
     </div>
 
-    <!-- Voeg meer projecten toe -->
   </div>
 </section>
+
 
 
   <section class="contact" id="contact">
@@ -190,32 +208,22 @@
   </section>
 
 <script>
-  // Scroll-afhankelijke gradient met vloeiende animatie
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = scrollTop / docHeight;
+  // Always reset scroll line on page load
+  window.addEventListener("load", () => {
+    const bar = document.querySelector(".nav-scroll-line");
+    if (bar) bar.style.width = "0%";
+  });
 
-    // Start- en eindkleur van gradient
-    const startColor = { r: 255, g: 255, b: 255 }; // wit
-    const endColor = { r: 142, g: 188, b: 142 };   // groen
+  // Scroll tracking
+  window.addEventListener("scroll", () => {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const scrolled = (doc.scrollTop / total) * 100;
 
-    // Interpoleer kleuren
-    const r = Math.round(startColor.r + (endColor.r - startColor.r) * scrollPercent);
-    const g = Math.round(startColor.g + (endColor.g - startColor.g) * scrollPercent);
-    const b = Math.round(startColor.b + (endColor.b - startColor.b) * scrollPercent);
-
-    // Tijd voor lichte animatie
-    const time = Date.now() * 0.0001; // langzaam verschuiven
-
-    // Dynamische gradient
-    document.body.style.background = `
-      linear-gradient(${270 + time * 50}deg,
-      rgb(${r},${g},${b}),
-      rgb(${Math.max(r-20,0)},${Math.max(g-20,0)},${Math.max(b-20,0)}))
-    `;
+    document.querySelector(".nav-scroll-line").style.width = scrolled + "%";
   });
 </script>
+
 <script>
 document.querySelectorAll('.skill-item').forEach(item => {
   const percentage = item.getAttribute('data-skill');
@@ -230,6 +238,15 @@ document.querySelectorAll('.skill-item').forEach(item => {
   });
 });
 </script>
+<script>
+window.addEventListener("scroll", () => {
+  const doc = document.documentElement;
+  const total = doc.scrollHeight - doc.clientHeight;
+  const scrolled = (doc.scrollTop / total) * 100;
+  document.querySelector(".nav-scroll-line").style.width = scrolled + "%";
+});
+</script>
+
 
 </body>
 </html>

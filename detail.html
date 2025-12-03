@@ -1,84 +1,168 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brighfish Project</title>
-    <link rel="stylesheet" href="detail.css">
-
-    <!-- VANTA.js dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brightfish Campaignplanner – Case Study</title>
+  <link rel="stylesheet" href="detail.css" />
 </head>
-<body class="vanta-background">
+<body>
 
-    <div class="header">
-        <a href="project.html">
-            <img class="return" src="./assets/Group 18.png" alt="Terug naar projecten">
-        </a>
-        <h1 class="title">Brighfish Campaignplanner</h1>
+  <header class="header">
+    <div class="header-inner">
+      <a href="project.html" class="return-btn">
+        <span>←</span>
+        <span>Terug naar projecten</span>
+      </a>
+      <div class="project-title">Brightfish Campaignplanner</div>
     </div>
+  </header>
 
-    <main>
-        <section class="concept">
-            <h2>Het concept</h2>
-            <p>Context & Uitdaging: Brightfish wilde zich richten op lokale bedrijven en KMO’s die nog nooit bioscoopreclame hadden geboekt. Ze vroegen om een digitale tool waarmee adverteerders eenvoudig hun campagne konden plannen, kosten berekenen en hulp krijgen via een AI-chatbot.</p>
-        </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero-card fade-in">
+      <div>
+        <h1 class="hero-title">Brightfish Campaignplanner</h1>
+        <p class="hero-subtitle">
+          Een webapplicatie waarmee adverteerders eenvoudig bioscoopcampagnes
+          kunnen plannen, budgetten berekenen en begeleiding krijgen via een AI-chatbot.
+        </p>
 
-        <section class="doel">
-            <h2>Het doel</h2>
-            <p>Een gebruiksvriendelijke campaign planner webapplicatie ontwikkelen die:<br>
-            - Engelstalig en GDPR-proof is;<br>
-            - de kostprijs berekent aan de hand van parameters;<br>
-            - ondersteuning biedt via een geïntegreerde Botpress-chatbot;<br>
-            - standalone én geïntegreerd in de Brightfish-website kan draaien.</p>
-        </section>
+        <div class="hero-meta">
+          <span class="badge badge-accent">UX / UI Design</span>
+          <span class="badge">Webapp</span>
+          <span class="badge">Figma · Botpress · Airtable</span>
+          <span class="badge">Schoolproject</span>
+        </div>
+      </div>
 
-        <section class="proces">
-            <h2>Het proces</h2>
-            <div class="grid">
-                <div class="moodboard">
-                    <h3>Het moodboard</h3>
-                    <img src="./assets/moodboard.png" alt="Moodboard">
-                </div>
-                <div class="kleurenpalet">
-                    <h3>Het kleurenpalet</h3>
-                    <img src="./assets/kleurenpalet.png" alt="Kleurenpalet">
-                </div>
-                <div class="database">
-                    <h3>De database</h3>
-                    <img src="./assets/database.png" alt="Database">
-                </div>
-                <div class="wireframes">
-                    <h3>Wireframes</h3>
-                    <img src="./assets/wireframes.png" alt="Wireframes">
-                    <img src="./assets/wireframess.png" alt="Wireframes">
-                </div>
-            </div>
-        </section>
+      <div class="hero-mockup browser-frame">
+        <!-- Gebruik hier jouw mooiste UI-screen van Brightfish -->
+        <img src="./assets/Group 6.png" alt="Brightfish UI overzicht">
+      </div>
+    </section>
 
-        <section class="resultaat">
-            <h2>Het resultaat</h2>
-            <img src="./assets/Group 16.png" alt="Resultaat">
-        </section>
-    </main>
+    <!-- CONCEPT -->
+    <section class="case-section fade-in">
+      <h2>Het concept</h2>
+      <p>
+        Brightfish wil lokale bedrijven en KMO’s helpen die nog nooit
+        bioscoopreclame hebben geboekt. De Campaignplanner is een digitale tool
+        die hen stap voor stap begeleidt bij het samenstellen van een campagne,
+        van budget en targeting tot het kiezen van de juiste films en formaten.
+      </p>
+    </section>
 
-     <script>
-        VANTA.NET({
-            el: "body",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 800.0,
-            minWidth: 100.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x8EBC8E,        // iets donkerder groene lijnen
-            backgroundColor: 0x1a1a1a // donker als body
-        });
-    </script>
+    <!-- DOEL -->
+    <section class="case-section fade-in">
+      <h2>Het doel</h2>
+      <p>
+        Een gebruiksvriendelijke, Engelstalige en GDPR-proof webapplicatie
+        ontwerpen die:
+        <br><br>
+        – adverteerders begeleidt bij het plannen en berekenen van hun campagne;<br>
+        – ondersteuning biedt via een geïntegreerde Botpress-chatbot;<br>
+        – zowel standalone als binnen de bestaande Brightfish-website kan draaien.
+      </p>
+    </section>
 
+    <!-- PROCES -->
+    <section class="case-section fade-in">
+      <h2>Het proces</h2>
+
+      <div class="process-grid">
+        <div class="process-item">
+          <h3>Moodboard</h3>
+          <p>Kleuren, sfeer en fotografie geïnspireerd op bioscoopervaring, licht, zitrijen en filmplakaten.</p>
+          <div class="mockup-card">
+            <img src="./assets/moodboard.png" alt="Moodboard Brightfish">
+          </div>
+        </div>
+
+        <div class="process-item">
+          <h3>Kleurenpalet</h3>
+          <p>Een palet met duidelijke rollen: accent, action, communication, anchor en neutral.</p>
+          <div class="mockup-card">
+            <img src="./assets/kleurenpalet.png" alt="Kleurenpalet Brightfish">
+          </div>
+        </div>
+
+        <div class="process-item">
+          <h3>Database & flows</h3>
+          <p>Een onderliggende database-structuur die campagnes, locaties, films en timings koppelt.</p>
+          <div class="mockup-card">
+            <img src="./assets/database.png" alt="Database Brightfish">
+          </div>
+        </div>
+
+        <div class="process-item">
+          <h3>Wireframes & structuur</h3>
+          <p>Low- en mid-fidelity wireframes om de stappenlogica en filters te testen.</p>
+          <div class="browser-frame" style="margin-bottom: 16px;">
+            <img src="./assets/wireframes.png" alt="Wireframes Brightfish">
+          </div>
+          <div class="browser-frame">
+            <img src="./assets/wireframess.png" alt="Extra wireframes Brightfish">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTAAT -->
+    <section class="case-section fade-in">
+      <h2>Het resultaat</h2>
+
+      <div class="device-mockup">
+        <!-- Jouw compositie met meerdere devices -->
+        <img src="./assets/Group 16.png" alt="Brightfish Campaignplanner in verschillende schermen">
+      </div>
+    </section>
+
+    <section class="final-multi-showcase fade-in">
+    <h2 class="final-title">Project Showcase</h2>
+
+    <div class="mockup-scroll-container">
+        <div class="mockup-track">
+
+            <img src="./assets/MacBook Air (15 inch) (1).png" class="mockup-slide" alt="Mockup 1">
+            <img src="./assets/Mockup 18.png" class="mockup-slide" alt="Mockup 2">
+            <img src="./assets/Boyne.png" class="mockup-slide" alt="Mockup 3">
+
+        </div>
+    </div>
+</section>
+
+  </main>
+   <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Neem contact met ons op via onderstaand formulier:</p>
+    <form action="submit_form.php" method="POST">
+      <label for="name">Naam:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Bericht:</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Verzenden</button>
+    </form>
+    <a href="mailto:info@jouwdomein.nl">Of stuur direct een e-mail</a>
+  </section>
+
+  <!-- Scroll fade-in animatie -->
+  <script>
+    const observed = document.querySelectorAll('.fade-in');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observed.forEach(el => io.observe(el));
+  </script>
 
 </body>
 </html>
-
