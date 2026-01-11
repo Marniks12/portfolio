@@ -1,0 +1,512 @@
+/* ========================================================= */
+/*                 DREAMY APPLE AESTHETIC CSS                */
+/* ========================================================= */
+
+/* ---------------------- VARIABLES ------------------------ */
+:root {
+  --accent: #8EBC8E;
+  --accent-soft: rgba(142, 188, 142, 0.15);
+
+  --text-main: #111;
+  --text-muted: #555;
+
+  --radius-lg: 28px;
+  --shadow-soft: 0 28px 60px rgba(0,0,0,0.14);
+  --shadow-small: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* ========================================================= */
+/*                       GLOBAL RESET                        */
+/* ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================================= */
+/*                      DREAMY BACKGROUND                    */
+/* ========================================================= */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  color: var(--text-main);
+
+  /* Apple dreamy gradient */
+  background: radial-gradient(circle at 20% 20%, #f3fdf7 0%, #e3f5ff 40%, #f0f5f0 100%) fixed;
+
+  /* Film grain */
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Soft blobs background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(150,220,170,0.28), transparent 70%);
+  top: -200px;
+  left: -200px;
+  filter: blur(90px);
+  z-index: -1;
+  animation: floatblob 14s ease-in-out infinite alternate;
+}
+
+@keyframes floatblob {
+  0% { transform: translate(0px, 0px); }
+  100% { transform: translate(60px, 40px); }
+}
+
+/* ========================================================= */
+/*                         HEADER                            */
+/* ========================================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.65);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.return-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: var(--shadow-small);
+}
+
+* Contact */
+
+#contact{background-color: black;}
+.contact {
+  background-color: black;
+  color: black;
+  padding: 40px 120px;
+  text-align: center;
+  border-radius: 20px;
+}   
+.contact h2 {
+  margin-bottom: 20px;
+  color: #8EBC8E;;
+}
+.contact p {
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #555;
+}
+.contact a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #8EBC8E;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.contact a:hover {
+  background-color: #76a66e;
+}
+/* Contactformulier */
+.contact form {
+  display: flex;
+  flex-direction: column; /* Zet alles onder elkaar */
+  align-items: center; /* Centreer horizontaal */
+  gap: 15px; /* Ruimte tussen velden */
+  max-width: 400px;
+  margin: 0 auto 30px auto; /* Centreert het formulier */
+}
+
+.contact label {
+  align-self: flex-start; /* Label links uitlijnen */
+  color: #8EBC8E; /* Groen accentkleur */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #3d5243; /* Donkergroen randje */
+  border-radius: 10px;
+  background-color: #111; /* Donkere achtergrond */
+  color: #fff; /* Witte tekst */
+  font-size: 14px;
+  resize: none; /* Geen formaat aanpassen bij textarea */
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #8EBC8E; /* Groen randje bij focus */
+  box-shadow: 0 0 5px #8EBC8E;
+}
+
+.contact button {
+  padding: 12px 24px;
+  background-color: #8EBC8E;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #76a66e;
+}
+
+/* Footer */
+footer {    
+  background-color: #3d5243;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* ========================================================= */
+/*                       TITLES (GRADIENT)                   */
+/* ========================================================= */
+
+h1, h2, h3 {
+  background: linear-gradient(90deg, #7bb88f, #b8e3c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================================= */
+/*                      CONTAINER WRAPPER                    */
+/* ========================================================= */
+
+main {
+  max-width: 1120px;
+  margin: 40px auto 100px;
+  padding: 0 24px;
+}
+
+/* ========================================================= */
+/*                         HERO CARD                         */
+/* ========================================================= */
+
+.hero-card {
+  background: rgba(255,255,255,0.55);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(28px);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 50px;
+  box-shadow: var(--shadow-soft);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  margin-bottom: 6px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.1);
+  font-size: 0.75rem;
+}
+
+.badge-accent {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: #14532d;
+}
+
+.hero-mockup {
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+/* FLOATING ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* ========================================================= */
+/*                         SECTIONS                          */
+/* ========================================================= */
+
+.case-section {
+  background: rgba(255,255,255,0.6);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  padding: 38px 44px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255,255,255,0.4);
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.case-section p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* fade-up */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================= */
+/*                      PROCESS GRID                         */
+/* ========================================================= */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.process-item {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* ========================================================= */
+/*                   MOCKUPS + DREAMY GLOW                   */
+/* ========================================================= */
+
+.mockup-card,
+.browser-frame,
+.device-mockup,
+.mockup-slide,
+.final-mockup {
+  background: white;
+  border-radius: 26px;
+  border: 1px solid rgba(0,0,0,0.12);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-small);
+}
+
+/* dreamy glow */
+.mockup-card::before,
+.browser-frame::before,
+.device-mockup::before,
+.mockup-slide::before,
+.final-mockup::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 40% 30%,
+    rgba(150, 210, 170, 0.38),
+    rgba(200, 240, 255, 0.25),
+    rgba(255,255,255,0) 70%
+  );
+  filter: blur(80px);
+  z-index: -1;
+}
+
+/* browser chrome dots */
+.browser-frame {
+  padding-top: 34px;
+}
+
+.browser-frame::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  background: #ff5f56;
+  border-radius: 999px;
+  box-shadow: 18px 0 #ffbd2e, 36px 0 #27c93f;
+}
+
+/* ========================================================= */
+/*             SCROLL MOCKUP GALLERY (HORIZONTAL)            */
+/* ========================================================= */
+
+.final-multi-showcase {
+  text-align: center;
+  padding: 30px 0 60px;
+}
+
+.mockup-scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+
+.mockup-scroll-container::-webkit-scrollbar { display: none; }
+
+.mockup-track {
+  display: inline-flex;
+  gap: 32px;
+}
+
+.mockup-slide {
+  width: 680px;
+  border-radius: 26px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.mockup-slide:hover {
+  transform: translateY(-8px);
+}
+
+/* ========================================================= */
+/*                         PARALLAX                          */
+/* ========================================================= */
+
+.parallax {
+  transform: translateY(var(--scroll, 0px));
+  transition: transform 0.1s ease-out;
+}
+
+/* JS handles: element.style.setProperty('--scroll', value) */
+
+/* ========================================================= */
+/*                         RESPONSIVE                        */
+/* ========================================================= */
+/* =============================================== */
+/*     FIX: ALLE AFBEELDINGEN TERUG NORMAAL        */
+/* =============================================== */
+
+/* 1. Elke afbeelding moet volledig zichtbaar zijn */
+img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important; /* nooit croppen */
+  border-radius: 16px; /* mag je veranderen */
+}
+
+/* 2. Mockup-containers mogen NIET meer snijden */
+.mockup-card,
+.browser-frame,
+.device-mockup,
+.mockup-slide,
+.final-mockup {
+  overflow: visible !important;   /* kritieke fix */
+  border-radius: 20px;
+  background: white;
+  padding: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* 3. Browserframe krijgt bolletjes maar GEEN mask */
+.browser-frame {
+  padding-top: 38px !important;
+  position: relative;
+}
+
+.browser-frame::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  background: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 18px 0 #ffbd2e, 36px 0 #27c93f;
+}
+
+/* 4. Glow achter mockups blijft mooi en zacht */
+.mockup-card::before,
+.browser-frame::before,
+.device-mockup::before,
+.mockup-slide::before,
+.final-mockup::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(
+    circle at 40% 30%,
+    rgba(142, 188, 142, 0.25),
+    rgba(200, 240, 255, 0.18),
+    rgba(255, 255, 255, 0)
+  );
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 40px;
+}
+
+/* 5. Prevent CSS van vroeger dat foto's cropt */
+img,
+.mockup-card img,
+.device-mockup img,
+.mockup-slide img,
+.final-mockup img,
+.browser-frame img {
+  object-fit: contain !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 900px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-section {
+    padding: 28px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+}
