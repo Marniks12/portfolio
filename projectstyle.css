@@ -386,6 +386,7 @@ body {
   cursor: pointer;
   transition: 0.3s ease;
   width: fit-content;
+  text-decoration: none;
 }
 
 .connect-btn:hover {
